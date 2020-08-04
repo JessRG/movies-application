@@ -13,13 +13,54 @@
 
             <!-- Subtitle/Loading Section -->
             <div class="col">
-                <h3></h3>
+            <!-- Forms Section -->
+                <ul class="nav nav-tabs" id="myTab" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <a class="nav-link active" id="create-tab" data-toggle="tab" href="#create" role="tab" aria-controls="create" aria-selected="true">Add Movie</a>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Profile</a>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Contact</a>
+                    </li>
+                </ul>
+                <div class="tab-content" id="myTabContent">
+                    <div class="tab-pane fade show active" id="create" role="tabpanel" aria-labelledby="create-tab">
+                        <!-- Add/Create Form -->
+                        <form id="form-create">
+                            <div class="form-group">
+                                <label for="movieTitle">Movie Title</label>
+                                <input type="text" class="form-control" id="movieTitle" placeholder="e.g. Sausage Party">
+                            </div>
+                            <div class="form-group">
+                                <label for="movieRating">Rating</label>
+                                <select class="form-control" id="movieRating">
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                    <option>5</option>
+                                </select>
+                            </div>
+                            <div class="d-flex">
+                                <button class="btn btn btn-primary ml-auto px-4" type="submit">Add</button>
+                            </div>
+                        </form>
+                        <!-- Add/Create Form -->
+                    </div>
+                    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">...</div>
+                    <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">...</div>
+                </div>
+
+            <!-- Forms Section End -->
             </div>
             <!-- Subtitle/Loading Section End -->
 
             <!-- Movies Section -->
             <div class="col">
-                <p>To get started, edit <code>src/index.js</code>.</p>
+                <h3></h3>
+                <p></p>
             </div>
             <!-- Movies Section End -->
         </div>

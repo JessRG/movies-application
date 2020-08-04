@@ -9,6 +9,16 @@
       "title": "Star Wars: A New Hope",
       "rating": "5",
       "id": 2
+    },
+    {
+      "title": "Sausage Party",
+      "rating": "4",
+      "id": 3
+    },
+    {
+      "title": "Starship Troopers",
+      "rating": "5",
+      "id": 4
     }
   ]
 }
