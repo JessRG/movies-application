@@ -19,6 +19,36 @@
       "title": "Starship Troopers",
       "rating": "5",
       "id": 4
+    },
+    {
+      "title": "Men In Black",
+      "rating": "2",
+      "id": 5
+    },
+    {
+      "title": "Men In Black II",
+      "rating": "2",
+      "id": 6
+    },
+    {
+      "title": "Men In Black III",
+      "rating": "3",
+      "id": 7
+    },
+    {
+      "title": "Evil Dead",
+      "rating": "1",
+      "id": 8
+    },
+    {
+      "title": "Evil Dead 2",
+      "rating": "1",
+      "id": 9
+    },
+    {
+      "title": "Army of Darkness",
+      "rating": "4",
+      "id": 10
     }
   ]
 }
