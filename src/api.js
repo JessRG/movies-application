@@ -1,25 +1,20 @@
 const $ = require("jquery");
 
 const movies = (obj) => {
+    // set loading placeholder
     $("#movieList").html("Loading...");
+    $("#edit-tab").addClass("disabled");
     if (Object.keys(obj).length < 2) {
-        return fetch(obj.url).then(response => {
-            return response.json();
-        })
+        return fetch(obj.url)
+            .then(response => response.json());
     } else {
-        return fetch(obj.url, obj.options).then(response => {
-            return response.json();
-        })
+        return fetch(obj.url, obj.options)
+            .then(response => response.json());
     }
 }
 
-// module.exports = {
 const getMovies = () => {
-    // Set loading placeholder
-    // $(".container h3").html("Loading...");
-    return movies({
-        url: '/api/movies'
-    });
+    return movies({ url: '/api/movies' });
 }
 
 // function to add a new movie
@@ -38,21 +33,33 @@ const addMovie = (title, rating, length) => {
         },
         body: JSON.stringify(movie)
     };
-    return movies({url, options})
+    return movies({ url, options });
 }
 
 // function to edit a movie
-const editMovie = (id, editMovie) => {
+const editMovie = (id, movie) => {
     const url = `/api/movies/${id}`;
     const options = {
         method: "PATCH",
         headers: {
             'Content-Type': 'application/json',
         },
-        body: JSON.stringify(editMovie)
-    }
-    return movies({url, options})
+        body: JSON.stringify(movie)
+    };
+    return movies({ url, options });
 }
-// };
 
-export { getMovies, addMovie, editMovie };
+// function to delete a movie
+const deleteMovie = (id, movie) => {
+    const url = `/api/movies/${id}`;
+    const options = {
+        method: "DELETE",
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(movie)
+    };
+    return movies({ url, options });
+}
+
+export { getMovies, addMovie, editMovie, deleteMovie };

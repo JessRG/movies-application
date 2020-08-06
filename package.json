@@ -17,6 +17,7 @@
     "babel-loader": "^7.1.1",
     "babel-preset-env": "^1.5.2",
     "bootstrap": "^4.5.1",
+    "bootstrap-icons": "^1.0.0-alpha5",
     "concurrently": "^3.5.0",
     "css-loader": "^4.2.0",
     "jquery": "^3.5.1",
