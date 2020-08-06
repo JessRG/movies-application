@@ -2,7 +2,7 @@ const $ = require("jquery");
 
 const movies = (obj) => {
     // set loading placeholder
-    $("#movieList").html("Loading...");
+    $("#movieList").html("<div class='mx-auto loader'></div>");
     $("#edit-tab").addClass("disabled");
     if (Object.keys(obj).length < 2) {
         return fetch(obj.url)
@@ -18,12 +18,12 @@ const getMovies = () => {
 }
 
 // function to add a new movie
-const addMovie = (title, rating, length) => {
-    const movie = {
-        title: title,
-        rating: rating,
-        id: length + 1
-    };
+const addMovie = (movie) => {
+    // const movie = {
+    //     title: title,
+    //     rating: rating,
+    //     id: length + 1
+    // };
     //console.log(Object.keys(movie).length);
     const url = '/api/movies';
     const options = {
@@ -50,14 +50,13 @@ const editMovie = (id, movie) => {
 }
 
 // function to delete a movie
-const deleteMovie = (id, movie) => {
+const deleteMovie = (id) => {
     const url = `/api/movies/${id}`;
     const options = {
         method: "DELETE",
         headers: {
             'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(movie)
+        }
     };
     return movies({ url, options });
 }

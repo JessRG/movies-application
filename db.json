@@ -2,7 +2,7 @@
   "movies": [
     {
       "title": "Casablanca",
-      "rating": "2",
+      "rating": "4",
       "id": 1
     },
     {
@@ -36,19 +36,19 @@
       "id": 7
     },
     {
-      "title": "Evil Dead",
-      "rating": "1",
-      "id": 8
-    },
-    {
       "title": "Evil Dead 2",
       "rating": "1",
       "id": 9
     },
     {
-      "title": "Army of Darkness",
-      "rating": "4",
+      "title": "Bad Boys",
+      "rating": "1",
       "id": 10
+    },
+    {
+      "title": "Bad Boys II",
+      "rating": "2",
+      "id": 11
     }
   ]
 }

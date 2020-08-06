@@ -56,47 +56,50 @@ const renderMovies = () => {
 }
 
 // Function to handle the edit form section
+let prevRadioBtn = undefined;
 const handleEditForm = () => {
-    movieList.children().each(function (index) {
-        $(`#deleteBtn${index + 1}`).removeClass('d-none');
-        $(`#selector${index + 1}`).removeClass('d-none');
-    });
+    radioBtns.removeClass('d-none');
+    deleteBtns.removeClass('d-none');
 
     // Event Listener for Radio Buttons when selected
-    radioBtns.click(() => {
-        $.each(radioBtns, function (idx) {
-            if ($(`#movieList #selector${idx + 1}`).prop("checked")) {
-                const movieTitle = $(`#lbl${idx + 1} .mTitle`).text();
-                const movieRating = $(`#lbl${idx + 1} .mRating`).text();
-                editTitle.val(movieTitle);
-                editRating.val(movieRating);
-                editID = idx + 1;
-            }
-        });
-    });
-
-    // Event Listener for Delete Button
-    let prevRadioBtn = undefined;
-    deleteBtns.click((e) => {
+    radioBtns.click((e) => {
         if (prevRadioBtn !== undefined) {
             prevRadioBtn.attr("checked", false);
         }
-        deleteBtns.removeAttr("checked");
-        const id = e.currentTarget.id.split("deleteBtn").join("");
+        const id = e.currentTarget.id.split("selector").join("");
         const currentRadioBtn = $(`#movieList #selector${id}`);
         currentRadioBtn.attr("checked", true);
+        const movieTitle = $(`#lbl${id} .mTitle`).text();
+        const movieRating = $(`#lbl${id} .mRating`).text();
+        editTitle.val(movieTitle);
+        editRating.val(movieRating);
+        editID = id;
         prevRadioBtn = currentRadioBtn;
     });
-}
 
+    // Event Listener for Delete Button
+    deleteBtns.click((e) => {
+        const id = e.currentTarget.id.split("deleteBtn").join("");
+        const currentRadioBtn = $(`#movieList #selector${id}`);
+        // Selects radio button and deselects previous radio button (checks)
+        currentRadioBtn.prop('checked')//if checked
+            ? currentRadioBtn.prop('checked',false)//uncheck
+            : currentRadioBtn.prop('checked',true);//else check
+        if (currentRadioBtn.prop('checked')) {
+            prevRadioBtn = currentRadioBtn;
+            deleteMovie(id).then(() => {
+                render().then(handleEditForm);
+                }
+            );
+        }
+    });
+}
 renderMovies();
 
 // Event Listener for Create Tab
 createTab.click(() => {
-    movieList.children().each(function (index) {
-        $(`#deleteBtn${index + 1}`).addClass('d-none');
-        $(`#selector${index + 1}`).addClass('d-none');
-    });
+    radioBtns.addClass('d-none');
+    deleteBtns.addClass('d-none');
 });
 
 //Event Listener for Edit Movie Tab
@@ -105,14 +108,19 @@ editTab.click(() => {
 });
 
 // Event Listener for Create Movie form
+getMovies().then((data) => console.log());
 formCreate.on("submit", (e) => {
     e.preventDefault();
     const newMovie = $("#movieTitleAdd").val();
     const rating = $("#movieRatingAdd").val();
+    const obj = {};
     getMovies().then((data) => {
-        movieList.html("");
-        addMovie(newMovie, rating, data.length)
-            .then(renderMovies);
+        obj.id = data[data.length -1].id;
+        addMovie({
+            title: newMovie,
+            rating: rating,
+            id: obj.id + 1
+        }).then(renderMovies);
     });
 });
 
