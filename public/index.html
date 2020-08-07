@@ -2,13 +2,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
-    <title>My Application</title>
+    <title>Movie List Application</title>
     <link rel="stylesheet" href="/style.css" />
 </head>
 <body>
     <!-- Content Section -->
     <div class="container-fluid mt-5 mb-3">
-        <h1>The Movie List</h1>
+        <h1 class="mb-3">The Plain Movie List</h1>
         <div class="row">
 
             <!-- Subtitle/Loading Section -->
@@ -26,7 +26,7 @@
                     <div class="tab-pane fade show active" id="create" role="tabpanel" aria-labelledby="create-tab">
                         <!-- Add/Create Form -->
                         <form id="form-create">
-                            <div class="form-group">
+                            <div class="form-group mt-2">
                                 <label for="movieTitleAdd">Movie Title</label>
                                 <input type="text" class="form-control" id="movieTitleAdd" placeholder="e.g. Sausage Party">
                             </div>
@@ -49,7 +49,7 @@
                     <div class="tab-pane fade" id="edit" role="tabpanel" aria-labelledby="edit-tab">
                         <!-- Edit/Delete Form -->
                         <form id="form-edit">
-                            <div class="form-group">
+                            <div class="form-group mt-2">
                                 <label for="movieTitleEdit">Movie Title</label>
                                 <input type="text" class="form-control" id="movieTitleEdit" placeholder="Select Movie From List">
                             </div>
@@ -75,8 +75,8 @@
             <!-- Subtitle/Loading Section End -->
 
             <!-- Movies Section -->
-            <div class="col-8">
-                <div class="overflow-auto mx-auto" id="movieList"></div>
+            <div class="col-8 text-center">
+                <div class="overflow-auto" id="movieList"></div>
             </div>
             <!-- Movies Section End -->
         </div>
