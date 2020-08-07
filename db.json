@@ -1,11 +1,6 @@
 {
   "movies": [
     {
-      "title": "Casablanca",
-      "rating": "4",
-      "id": 1
-    },
-    {
       "title": "Star Wars: A New Hope",
       "rating": "5",
       "id": 2
@@ -39,16 +34,6 @@
       "title": "Evil Dead 2",
       "rating": "1",
       "id": 9
-    },
-    {
-      "title": "Bad Boys",
-      "rating": "1",
-      "id": 10
-    },
-    {
-      "title": "Bad Boys II",
-      "rating": "2",
-      "id": 11
     }
   ]
 }

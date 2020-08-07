@@ -11,7 +11,6 @@ sayHello('World');
 /**
  * require style imports
  */
-// const {getMovies, addMovie, editMovie} = require('./api.js');
 import { getMovies, addMovie, editMovie, deleteMovie } from "./api";
 
 const formCreate = $("#form-create");
@@ -44,7 +43,7 @@ const render = () => getMovies().then((movies) => {
             `</div>`);
     });
     radioBtns = $("#movieList input");
-    deleteBtns = $("#movieList button")
+    deleteBtns = $("#movieList button");
 }).catch((error) => {
     alert('Oh no! Something went wrong.\nCheck the console for details.')
     console.log(error);

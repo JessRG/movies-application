@@ -19,12 +19,6 @@ const getMovies = () => {
 
 // function to add a new movie
 const addMovie = (movie) => {
-    // const movie = {
-    //     title: title,
-    //     rating: rating,
-    //     id: length + 1
-    // };
-    //console.log(Object.keys(movie).length);
     const url = '/api/movies';
     const options = {
         method: 'POST',

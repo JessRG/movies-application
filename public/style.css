@@ -12,7 +12,7 @@ html, body {
 
 /* Loading animation */
 .loader {
-    margin-top: calc(50% - 30px);
+    margin-top: calc(20% - 30px);
     border: 10px solid #f3f3f3; /* Light grey */
     border-top: 10px solid #3498db; /* Blue */
     border-radius: 50%;
