@@ -11,7 +11,7 @@ sayHello('World');
 /**
  * require style imports
  */
-import { getMovies, addMovie, editMovie, deleteMovie } from "./api";
+import { getMovies, addMovie, editMovie, deleteMovie, getMovieInfo } from "./api";
 
 const formCreate = $("#form-create");
 const formEdit = $("#form-edit");
@@ -94,6 +94,7 @@ const handleEditForm = () => {
     });
 }
 renderMovies();
+getMovieInfo("Back to the Future");
 
 // Event Listener for Create Tab
 createTab.click(() => {

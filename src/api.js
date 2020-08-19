@@ -1,3 +1,5 @@
+import { OMDb_KEY } from "./keys";
+
 const $ = require("jquery");
 
 const movies = (obj) => {
@@ -11,6 +13,11 @@ const movies = (obj) => {
         return fetch(obj.url, obj.options)
             .then(response => response.json());
     }
+}
+
+const getMovieInfo = (title) => {
+    fetch(`http://www.omdbapi.com/?apikey=${OMDb_KEY}&t=${title}`)
+        .then(response => response.json());
 }
 
 const getMovies = () => {
@@ -55,4 +62,4 @@ const deleteMovie = (id) => {
     return movies({ url, options });
 }
 
-export { getMovies, addMovie, editMovie, deleteMovie };
+export { getMovies, addMovie, editMovie, deleteMovie, getMovieInfo };
