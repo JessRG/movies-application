@@ -28,6 +28,8 @@ const render = () => getMovies().then((movies) => {
     movieList.html("");
     editTab.removeClass("disabled");
     movies.forEach(({title, rating, id}) => {
+        console.log(getMovieInfo(title));
+
         movieList.append(
             `<div class="d-flex align-items-baseline">` +
                 `<input type="radio" id="selector${id}" name="selected-movie" value="movie${id}" class="d-none">` +
@@ -94,7 +96,6 @@ const handleEditForm = () => {
     });
 }
 renderMovies();
-getMovieInfo("Back to the Future");
 
 // Event Listener for Create Tab
 createTab.click(() => {

@@ -16,7 +16,7 @@ const movies = (obj) => {
 }
 
 const getMovieInfo = (title) => {
-    fetch(`http://www.omdbapi.com/?apikey=${OMDb_KEY}&t=${title}`)
+    return fetch(`http://www.omdbapi.com/?apikey=${OMDb_KEY}&t=${title}`)
         .then(response => response.json());
 }
 
